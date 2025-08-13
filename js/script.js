@@ -337,28 +337,28 @@ function initScrollAnimations() {
 
 // Efectos de hover mejorados
 function initHoverEffects() {
-    // Efecto de paralaje suave en la sección principal
-    const welcomeSection = document.querySelector('.welcome-section');
+    // Efecto de paralaje suave en la sección principal - DESHABILITADO
+    // const welcomeSection = document.querySelector('.welcome-section');
     
-    if (welcomeSection) {
-        welcomeSection.addEventListener('mousemove', (e) => {
-            const rect = welcomeSection.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            welcomeSection.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
-        });
-        
-        welcomeSection.addEventListener('mouseleave', () => {
-            welcomeSection.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
-        });
-    }
+    // if (welcomeSection) {
+    //     welcomeSection.addEventListener('mousemove', (e) => {
+    //         const rect = welcomeSection.getBoundingClientRect();
+    //         const x = e.clientX - rect.left;
+    //         const y = e.clientY - rect.top;
+    //         
+    //         const centerX = rect.width / 2;
+    //         const centerY = rect.height / 2;
+    //         
+    //         const rotateX = (y - centerY) / 20;
+    //         const rotateY = (centerX - x) / 20;
+    //         
+    //         welcomeSection.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+    //     });
+    //     
+    //     welcomeSection.addEventListener('mouseleave', () => {
+    //         welcomeSection.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    //     });
+    // }
 }
 
 // Contador de visitas (simulado)
