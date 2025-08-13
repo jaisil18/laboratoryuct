@@ -244,17 +244,48 @@ function initThemeToggle() {
     const themeIcon = document.querySelector('.theme-icon');
     const body = document.body;
     
-    // Verificar tema guardado
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    body.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme, themeIcon);
+    // Función para obtener la hora peruana
+    function getPeruvianTime() {
+        const now = new Date();
+        // UTC-5 para hora de Perú
+        const peruTime = new Date(now.getTime() - (5 * 60 * 60 * 1000));
+        return peruTime.getHours();
+    }
+    
+    // Función para determinar el tema automático
+    function getAutoTheme() {
+        const hour = getPeruvianTime();
+        // Modo oscuro de 18:00 (6pm) a 05:00 (5am)
+        return (hour >= 18 || hour < 5) ? 'dark' : 'light';
+    }
+    
+    // Verificar si hay preferencia manual guardada
+    const manualTheme = localStorage.getItem('manualTheme');
+    const autoTheme = getAutoTheme();
+    
+    // Si no hay preferencia manual, usar tema automático
+    const currentTheme = manualTheme || autoTheme;
+    body.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme, themeIcon);
+    
+    // Actualizar tema automáticamente cada minuto
+    setInterval(() => {
+        if (!localStorage.getItem('manualTheme')) {
+            const newAutoTheme = getAutoTheme();
+            if (body.getAttribute('data-theme') !== newAutoTheme) {
+                body.setAttribute('data-theme', newAutoTheme);
+                updateThemeIcon(newAutoTheme, themeIcon);
+            }
+        }
+    }, 60000); // Cada minuto
     
     themeToggle.addEventListener('click', () => {
         const currentTheme = body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        // Guardar preferencia manual
+        localStorage.setItem('manualTheme', newTheme);
         updateThemeIcon(newTheme, themeIcon);
         
         // Efecto de transición suave
@@ -262,6 +293,19 @@ function initThemeToggle() {
         setTimeout(() => {
             themeToggle.style.transform = 'scale(1)';
         }, 150);
+        
+        // Mostrar notificación sobre el cambio manual
+        showNotification(`Tema cambiado a modo ${newTheme === 'dark' ? 'oscuro' : 'claro'} manualmente. Para volver al modo automático, recarga la página.`, 'info');
+    });
+    
+    // Botón para resetear a modo automático (doble clic)
+    let clickCount = 0;
+    themeToggle.addEventListener('dblclick', () => {
+        localStorage.removeItem('manualTheme');
+        const autoTheme = getAutoTheme();
+        body.setAttribute('data-theme', autoTheme);
+        updateThemeIcon(autoTheme, themeIcon);
+        showNotification('Modo automático activado. El tema cambiará según la hora peruana (6pm-5am: oscuro, 5am-6pm: claro).', 'info');
     });
 }
 
