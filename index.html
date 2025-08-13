@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio UCT - Protocolos y Manuales</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Partículas de fondo -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Toggle de modo oscuro -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn" title="Cambiar tema">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo fade-in-up">
+                <img src="assets/logouct.png" alt="UCT Logo" class="logo-img">
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="welcome-section fade-in-up">
+                <div class="content-with-character">
+                    <div class="text-content">
+                        <div class="title-with-icons">
+                            <span class="science-icon">🔬</span>
+                            <h1 class="title fade-in-left">Bienvenid@s estimados alumnos de la UCT</h1>
+                            <span class="science-icon">⚗️</span>
+                        </div>
+                        <p class="subtitle fade-in-left delay-1">Listo para navegar y seguir con los protocolos y manuales.</p>
+                        
+                        <div class="description fade-in-left delay-2">
+                            <div class="safety-highlight">
+                                <span class="safety-icon">🛡️</span>
+                                <p>Es importante que, al ingresar a un laboratorio, se lea cuidadosamente el protocolo y manual correspondiente. De esta manera, podrán llevar a cabo sus clases de forma ordenada, segura y eficiente. Asegúrese de seguir todas las indicaciones para un aprendizaje exitoso.</p>
+                            </div>
+                        </div>
+
+                        <div class="buttons-container fade-in-up delay-3">
+                            <button class="btn btn-primary" onclick="openProtocol()">
+                                <span class="btn-icon">📋</span>
+                                Protocolo Normal
+                            </button>
+                            <button class="btn btn-secondary" onclick="openManual()">
+                                <span class="btn-icon">📚</span>
+                                Manual General de Laboratorio
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="character-container fade-in-right">
+                        <div class="speech-bubble">
+                            <div class="speech-content">
+                                <p class="speech-text">¡Hola! Recuerda revisar los protocolos antes de ingresar al laboratorio. ¡La seguridad es lo primero! 🧪⚗️</p>
+                            </div>
+                            <div class="speech-tail"></div>
+                        </div>
+                        <img src="assets/personajeuct.png" alt="Personaje UCT" class="character-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Universidad Católica de Trujillo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
