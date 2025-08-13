@@ -44,11 +44,11 @@ function openManual() {
 
 // Mensajes dinámicos para el personaje UCT
 const speechMessages = [
-    '¡Hola! Recuerda revisar los protocolos antes de ingresar al laboratorio. ¡La seguridad es lo primero! 🧪⚗️',
+    '¡Hola! Recuerda revisar los protocolos antes de ingresar al laboratorio, ¡La seguridad es lo primero! 🧪⚗️',
     '¡Bienvenidos estudiantes! No olviden leer el manual general antes de usar cualquier equipo. 📚✨',
     '¡Importante! Siempre sigan las normas de seguridad para un aprendizaje exitoso. 🛡️🎓',
-    '¡Hola UCT! Los protocolos están aquí para protegerlos. ¡Léanlos con atención! 👨‍🔬👩‍🔬',
-    '¡Recuerden! Un laboratorio seguro es un laboratorio productivo. ¡Sigan las reglas! 🔬💡'
+    '¡Hola Alumnos! Los protocolos están aquí para protegerlos, ¡Léanlos con atención! 👨‍🔬👩‍🔬',
+    '¡Recuerden! Un laboratorio seguro es un laboratorio productivo, ¡Sigan las reglas! 🔬💡'
 ];
 
 let currentMessageIndex = 0;

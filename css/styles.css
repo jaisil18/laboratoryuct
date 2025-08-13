@@ -95,6 +95,7 @@ body {
     top: 20px;
     right: 20px;
     z-index: 1000;
+    display: none; /* Ocultar el botón pero mantener la funcionalidad */
 }
 
 .theme-btn {
@@ -459,32 +460,49 @@ body {
 .title {
     text-transform: uppercase;
     text-align: center;
-    font-size: 2rem;
+    font-size: 30px;
     margin-bottom: 0;
-    color: var(--accent-tertiary);
-    font-weight: 700;
-    text-shadow: 2px 2px 4px var(--shadow-medium);
+    font-family: Arial Black;
+    font-weight: bold;
+    background: #140958;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.205), 0px -1px 1px rgba(0,0,0,0.3);
     transition: var(--transition);
     line-height: 1.2;
+    letter-spacing: 0.5px;
+    position: relative;
 }
 
 .subtitle {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: var(--text-secondary);
-    font-weight: 300;
+    color: #140958;
+    font-weight: 600;
     transition: var(--transition);
 }
 
 .description {
     margin-bottom: 2rem;
-    color: var(--text-secondary);
+    color: #140958;
     font-size: 1rem;
     line-height: 1.8;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 500;
     transition: var(--transition);
+}
+
+/* Estilos para modo oscuro */
+[data-theme="dark"] .subtitle {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .description {
+    color: #ffffff;
 }
 
 /* Buttons */
